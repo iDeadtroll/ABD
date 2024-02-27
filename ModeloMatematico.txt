@@ -1,0 +1,23 @@
+Almacenamiento y Estructura de Archivo
+
+Modelo Matematico:
+
+T_Peticion = Suma(T_Acceso) + T_Tranferencia
+
+T_Acceso = T_Busqueda + Media(T_Latecia_Rotacional)
+
+Media(T_Latecia_Rotacional) = 1/2*V_Rotacional
+
+T_Tranferencia = T_transferencia_sector * N_sectores_leidos
+
+T_transferencia_sector = T_Latecia_Rotacional / N_sectores_pista
+
+T_Latecia_Rotacional = 1 / V_Rotacional
+
+N_sectores_leidos = N_sectore_peticion + N_sectores_X
+
+N_sectores_peticion = N_bytes_peticion / N_bytes_sector
+
+V_tranferencia_max = V_Rotacional * max(N_sectores_pista) * N_bytes_sector
+
+V_tranferencia_media = V_Rotacional * media(N_sectores_pista) * N_bytes_sector
