@@ -1,12 +1,13 @@
 class DatosEntrada:
     # t_busqueda se da en 'milisegundos' y hay que convertirlo ha 'segundos'
     # v_rotacional se da en 'rpm' y hay que pasarlo ha 'rps o pistas/segundo'
-    def __init__(self, t_busqueda: int, v_rotacional: int, sectores_pista: int, bytes_sector: int, bytes_peticion: int):
+    def __init__(self, t_busqueda: int, v_rotacional: int, sectores_pista: int, bytes_sector: int, Kilobytes_peticion: int, sectores_X: int):
         self.__t_busqueda = t_busqueda
         self.__v_rotacional = v_rotacional
         self.__sectores_pista = sectores_pista
         self.__bytes_sector = bytes_sector
-        self.__bytes_peticion = bytes_peticion
+        self.__Kilobytes_peticion = Kilobytes_peticion
+        self.__sectores_X = sectores_X
 
 
     @property
@@ -27,8 +28,12 @@ class DatosEntrada:
     
     @property
     def bytes_peticion(self):
-        return self.__bytes_peticion
+        return self.__Kilobytes_peticion * 1024
     
+    @property
+    def sectores_X(self):
+        return self.__sectores_X
+
     @t_busqueda.setter
     def t_busqueda(self, t_busqueda):
         self.__t_busqueda = t_busqueda
@@ -46,8 +51,12 @@ class DatosEntrada:
         self.__bytes_sector = bytes_sector
 
     @bytes_peticion.setter
-    def bytes_peticion(self, bytes_peticion):
-        self.__bytes_peticion = bytes_peticion
+    def bytes_peticion(self, Kilobytes_peticion):
+        self.__Kilobytes_peticion = Kilobytes_peticion
+
+    @sectores_X.setter
+    def sectores_X(self, sectores_X):
+        self.__sectores_X = sectores_X
 
     def __str__(self):
         datos = ""
@@ -55,6 +64,8 @@ class DatosEntrada:
         datos += "Tiempo de busqueda = " + str(self.t_busqueda) + " segundos\n"
         datos += "Velocidad rotacional = " + str(self.v_rotacional) + " pistas/segundo\n"
         datos += "Sectores por pista = " + str(self.sectores_pista) + " sectores/pista\n"
-        datos += "Bytes por sector = " + str(self.bytes_sector) + " bytes/sector"
+        datos += "Bytes por sector = " + str(self.bytes_sector) + " bytes/sector\n"
+        datos += "Bytes de la peticion = " + str(self.__Kilobytes_peticion) + " bytes\n"
+        datos += "Numero de sectores X = " + str(self.__sectores_X) + " (sectores X)"
         return datos
 

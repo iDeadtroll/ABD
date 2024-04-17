@@ -8,12 +8,13 @@ def main():
     v_rotacional = int(input("Introduzca velocidad rotacional: "))
     sectores_pista = int(input("Introduzca numero de sectores/pista: "))
     bytes_sector = int(input("Introduzca bytes/sector: "))
-    bytes_peticion = int(input("Introduzca bytes de la peticion: "))
-    datos1 = DatosEntrada(t_busqueda,v_rotacional,sectores_pista,bytes_sector,bytes_peticion)
+    bytes_peticion = int(input("Introduzca KiB de la peticion: "))
+    sectores_X = int(input("Introduzca nuemro de sectores X: "))
+    datos1 = DatosEntrada(t_busqueda,v_rotacional,sectores_pista,bytes_sector,bytes_peticion,sectores_X)
     print(datos1)
-    calculo1 = Calculadora_T1(t_busqueda,v_rotacional,sectores_pista,bytes_sector,bytes_peticion)
+    calculo1 = Calculadora_T1(t_busqueda,v_rotacional,sectores_pista,bytes_sector,bytes_peticion,sectores_X)
     print(calculo1)
-    calculo2 = Calculadora_T2(t_busqueda,v_rotacional,sectores_pista,bytes_sector,bytes_peticion)
+    calculo2 = Calculadora_T2(t_busqueda,v_rotacional,sectores_pista,bytes_sector,bytes_peticion,sectores_X)
     print(calculo2)
 
 
