@@ -2,7 +2,7 @@ class DatosEntrada:
     # t_busqueda se da en 'milisegundos' y hay que convertirlo ha 'segundos'
     # v_rotacional se da en 'rpm' y hay que pasarlo ha 'rps o pistas/segundo'
     # Kilobytes_peticion hay que pasarlo a 'bytes'
-    def __init__(self, t_busqueda: int, v_rotacional: int, sectores_pista: int, bytes_sector: int, Kilobytes_peticion: int, sectores_X: int):
+    def __init__(self, t_busqueda: int, v_rotacional: int, sectores_pista: int, bytes_sector: int, Kilobytes_peticion: float, sectores_X: int):
         self.__t_busqueda = t_busqueda
         self.__v_rotacional = v_rotacional
         self.__sectores_pista = sectores_pista
